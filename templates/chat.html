@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Chat Room</h2>
+<ul id="messages"></ul>
+<input id="myMessage" autocomplete="off"><button onclick="sendMessage()">Send</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js"></script>
+<script type="text/javascript" charset="utf-8">
+  var socket = io();
+  socket.on('message', function(msg){
+      var item = document.createElement('li');
+      item.textContent = msg;
+      document.getElementById('messages').appendChild(item);
+  });
+
+  function sendMessage() {
+      var input = document.getElementById('myMessage');
+      socket.send(input.value);
+      input.value = '';
+  }
+</script>
+{% endblock %}

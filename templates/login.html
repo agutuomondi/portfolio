@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunpark Site Management System - Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a6e23;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        header {
+            width: 100%;
+            background-color: #e8f722;
+            color: rgb(6, 13, 27);
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1; /* Ensure header is above other elements */
+        }
+        .form-container {
+            display: none; /* Initially hide the form */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 200%;
+            margin-top: 120px; /* To ensure it stays below the header */
+        }
+        form {
+            background-color: rgb(235, 238, 58);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            margin: 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>SUNPARK SITE MANAGEMENT SYSTEM</h2>
+    </header>
+    <div class="form-container" id="signup-form">
+        <h2>Sign Up</h2>
+        <form method="post" action="/signup">
+            <div>
+                <label for="username">User Name</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+    <div class="form-container" id="signin-form" style="display: none;">
+        <h2>Sign In</h2>
+        <form method="post" action="/login">
+            <div>
+                <label for="username">User Name</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <button type="submit">Sign In</button>
+            </div>
+        </form>
+    </div>
+    <button onclick="showSignIn()">Sign In</button>
+
+    <script>
+        function showSignIn() {
+            document.getElementById("signin-form").style.display = "block";
+            document.getElementById("signup-form").style.display = "none";
+        }
+    </script>
+</body>
+</html>
